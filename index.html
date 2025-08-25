@@ -1,0 +1,156 @@
+<!-- ====================== EECS 493 Assignment 2 Starter Code ====================== -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asteroids</title>
+  <!-- JS -->
+  <script src='scripts/jquery.min.js'></script>
+  <script src='scripts/page.js'></script>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<!-- HTML -->
+<body>
+  <div class='outer-container'>
+      <div class='game-window'>
+
+
+
+        <!-- Main Menu -->
+    
+        <div class="clear-div" id="landing-page"> 
+          <div id="landing-header">
+            <img src="./src/asteroid.png" >
+
+            <span class="centerText"> Asteroids</span>
+            <img src ="./src/asteroid.png" >
+            </div> 
+          <div>
+            <button id ="play-button" onclick="openTutorial()">Play Game!</button>
+          </div>
+          
+            <button onclick="setting_click()">Settings</button>
+            </div>
+          </div>
+
+        <!-- Settings -->
+        <div id="settings">
+          <h2 class="settings-header">Settings</h2>
+
+          <div id="volume-control">
+            <label id="volume-label" for="volume-slider">
+              <strong>Volume:</strong> <span id="volume-value">50</span>
+            </label>
+            <input type="range" id="volume-slider" min="0" max="100" value="50">
+          </div>
+          
+          
+          
+          <div id="difficulty-control" class="centered-margin">
+            <label class="difficulty-label"> <strong>Difficulty</strong></label>
+            <div>
+              <button id="easy" class ="diff-butt" onclick="difficulty_helper(this.id)">Easy</button>
+              <button id="normal" class="diff-butt" onclick="difficulty_helper(this.id)">Normal</button>
+              <button id="hard" classs="diff-butt" onclick ="difficulty_helper(this.id)">Hard</button>
+            </div>
+          </div>
+          <div class="centered-margin">
+            <button id="close" onclick="closeSettings()">Close</button>
+          </div>
+        </div>
+        <div id="gameover" class="gameO">
+          GAME OVER!
+          <br><br>
+          YOU HAVE TO FIX YOUR SPACESHIP!
+          <br><br>
+          <div id="final_score">0</div>
+          <br>
+          <button onclick="startOver()">Start Over</button>
+        </div>
+        <!-- Tutorial -->
+        <div id="tutorial-page">
+          <div class="tutorial-header">How to play</div>
+          <br>
+          <div class="tutorial-instructions">
+            <p><strong>Avoid </strong> <em>asteroids!</em></p>
+            <img src="./src/asteroid.png" alt="Asteroid Icon" class="tutorial-icon">
+            <p><strong>Collect </strong> <em>shields!</em> <strong>Travel</strong> through <em>portals</em> to the next level!</p>
+            <div>
+              <img src="./src/shield.gif" alt="Shield Icon" class="tutorial-icon">
+              <img src="./src/port.gif" alt="Portal Icon" class="tutorial-icon">
+            </div>
+            <p> <strong>Gain</strong> as many <em>points</em> as possible!</p>
+          </div>
+          <button class="start-button" onclick="startGame()">Start</button>
+          
+        </div>
+      </div>
+
+
+        <!-- Actual Game -->
+          <div id="actual_game">
+
+            <div id="pause-overlay"></div>
+
+
+            <div id="splash">
+              <div class="splish"><strong>Get Ready!</strong></div>
+              <img class="arrows" src="src/arrowkeys.png">
+              <br>Use arrow keys to move.
+            </div>
+            <div id="player">
+              <img class="player_img" src="src/player/player.gif">
+            </div>
+
+          <div class="asteroidSection">
+            <div class="curAstroid"> </div>
+            <div class="curShield">
+            </div>
+            <div class="curPortal"> </div>
+          </div>
+          
+            <div id="game_right_section">
+              <button id="pause-btn" onclick="togglePause()">
+    <img src="src/pause.png" alt="Pause" id="pause-icon"> </button>
+
+              <div id="scoreword">
+                SCORE
+                <div id="score_num">0</div>
+              </div>
+            <div id="danger">DANGER
+              <div id="danger_num"></div></div>
+              <div id="level">LEVEL
+                <div id="level_num"> </div></div>
+            </div>
+                <!-- Pause Menu (Add Here) -->
+          <div id="pause-menu" class="pause-container">
+            <h2>Game Paused</h2>
+            <img src="src/pause-rocket.gif" alt="Paused Rocket" class="pause-img">
+            <button id="resume-btn" onclick="resumeGame()">Resume</button>
+
+            <!-- Restart & Exit side by side -->
+            <div class="button-container">
+              <button id="restart-btn" onclick="restartGame()">Restart</button>
+              <button d="exit-btn" onclick="exitGame()">Exit</button>
+
+
+            </div>
+            </div>
+            <!-- Restart Confirmation  -->
+            <div id="restart-confirmation" class="modal">
+              <div class="modal-content">
+                  <p>Are you sure you want to restart?</p>
+                  <button onclick="confirmRestart()">Yes</button>
+                  <button onclick="cancelRestart()">No</button>
+              </div>
+
+            </div>
+
+
+      </div> <!-- end game-window -->
+  </div> <!-- end outer-container -->
+</body>
+
+</html>

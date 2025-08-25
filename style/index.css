@@ -1,0 +1,539 @@
+/* ======================= EECS 493 Assignment 2 Starter Code ======================= */
+
+/* Main Containers */
+body, button {
+  font-family: VT323;
+}
+button {
+  font-size: xx-large;
+}
+
+.outer-container {
+  height: 720px;
+  width: 1280px;
+  background: #eee;
+  border: 5px solid gainsboro;
+}
+
+.game-window {
+  height: 720px;
+  width: 1280px;
+  float: left;
+  position: relative;
+}
+
+#pause-menu {
+  display: none; /* Hide it initially */
+  position: fixed; /* Fixed so it stays centered even when resizing */
+  width: 600px; 
+  height: 650px;
+  background-color: darkslateblue;
+  text-align: center;
+  color: white;
+  background: rgba(211, 211, 211, 1); 
+  top:20px;
+  left:350px;
+  z-index: 112;
+  margin:0;
+}
+#pause-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    
+}
+#pause-menu button {
+  display: block; 
+  width: 90%; 
+  margin: 8px auto; 
+  padding: 10px;
+  font-size: 40px;
+  padding: 30px;
+  border: 2px solid black;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+/* Restart & Exit Button Container */
+#pause-menu .button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; 
+  margin-top: 10px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Restart & Exit Buttons */
+#pause-menu .button-container button {
+  width: 50%;  
+}
+
+
+
+
+
+
+#pause-menu h2 {
+  font-size: 60px;
+  color: black; 
+  font-weight: bold;
+  margin-top: 10px; 
+}
+
+#pause-icon {
+    width: 100%;
+    height: 100%;
+}
+#pause-menu img {
+  width: 200px;  
+  height: auto;  
+  margin: 20px auto; 
+  display: block;
+}
+
+
+#settings{
+  position: fixed; 
+  width: 600px; 
+  height: 690px;
+  background-color: darkslateblue;
+  border: 5px solid white; 
+  top:25px;
+  left:350px;
+  z-index: 1;
+  display: none; 
+  margin:0;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); 
+
+}
+
+
+#settings-header{
+  justify-content: center;
+  height:100px;
+  background-color: darkslateblue;
+  border-bottom: 6px;
+  border-bottom-style: groove ;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+  display:flex;
+}
+
+
+
+
+#landing-header{
+  height:100px;
+  background-color: darkslateblue;
+  border-bottom: 6px;
+  border-bottom-style: groove ;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+  display:flex;
+  justify-content: space-between;
+  
+
+}
+
+
+#landing-page{
+  text-align: center;
+  background-image: url(../src/frontpage_background.jpg);
+  height:100%
+}
+
+#landing-page button{
+  margin-top: 120px;
+  width: 200px;
+  text-align: center;
+  height: 100px;
+  background-color: darkslateblue;
+  color: white;
+  
+}
+
+#landing-page button{
+  margin-top: 120px;
+  width: 200px;
+  text-align: center;
+  height: 100px;
+  background-color: darkslateblue;
+  color: white;
+  
+}
+
+
+#landing-header img{
+  height: 100%;
+}
+
+
+
+/* SLIDER */
+input[type="range"] {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 100%; 
+  height: 10px; 
+  background: #e0e0e0;
+  outline: none; 
+  border-radius: 0; 
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; 
+  height: 20px; 
+  background: #81c784;
+  cursor: pointer; 
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #81c784;
+  cursor: pointer;
+}
+
+/* Volume */
+
+#volume-label {
+  font-size: 2rem;
+  color: white; 
+
+}
+
+.settings-header {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+}
+
+#settings h2 {
+  margin-bottom: 20px;
+}
+
+#volume-control {
+  text-align:center;
+  margin-top: 70px;
+}
+
+#difficulty-control {
+  margin-top: 60px;
+}
+
+#difficulty-control button {
+  background-color: purple; 
+  color: white; 
+  border: 2px solid white; 
+  width: 150px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+#close {
+  margin-top: 180px;
+  font-size: 1.5rem;
+  width: 150px; 
+  height: 50px; 
+  background-color: purple; 
+  color: white; 
+  border: 2px solid white; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  
+}
+
+
+
+/* Tutorial */
+#tutorial-page {
+  display: none;
+  background-color: white;
+  height: 100vh;
+  text-align: center;
+  padding-top: 20px;
+  position:fixed
+}
+
+#tutorial-page {
+  
+  height:720px;
+  width:1280px;
+  font-family: "VT323", monospace;
+  text-align:center;
+}
+
+/* Header Style */
+.tutorial-header {
+  font-size: 75px;
+  font-weight: bold;
+  text-align:center;
+  color: black;
+}
+
+.tutorial-instructions {
+  font-size: 1.5rem; 
+  line-height: 1.8; 
+  color: black;
+}
+
+/* Highlighted Text */
+.tutorial-instructions em {
+  font-style: italic;
+  color: black;
+}
+
+.tutorial-icon {
+  width: 50px; 
+  height: auto;
+  margin: 10px;
+}
+
+/* Start Button */
+.start-button {
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: gray;
+}
+
+.normal-button {
+  border-color: yellow;
+  border-width: 2px;
+  border-style: solid; 
+  background-color: transparent; 
+}
+
+.difficulty-label {
+  font-size: xx-large; 
+  color: white;       
+  text-align: center;  
+  display: block;     
+  margin-bottom: 10px; 
+}
+.centered-margin {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/************** FOR A3 *************/
+
+#player{
+  position: absolute;
+  width: 62px;
+  left: 600px;
+  top: 300px;
+  z-index: 9;
+}
+
+.curAstroid{
+  position: absolute;
+  height: 42px;
+  width: 42px;
+  z-index: 5;
+  right: 0px;
+  top: 0px;
+  right: 0px;
+  top: 0px;
+
+}
+
+.curAstroid img{
+  position: relative;
+  z-index: 10;
+  height: 80px;
+  left: -17px;
+  top: -15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
+#scoreword, #danger, #level{
+  text-align: center;
+  font-size: 60px;
+}
+#score_num,
+#danger_num,
+#level_num {
+  text-align: center;
+  font-size: 40px;
+}
+
+#actual_game, #game_right_section, #Ready {
+  display: none;
+}
+#actual_game {
+  position: absolute;
+  height: 720px;
+  width: 1280px;
+  background-color: white;
+  border: none;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  border: 5px solid gainsboro;
+
+  overflow: hidden;
+}
+
+#game_right_section {
+  width: 300px;
+  height: 720px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: white;
+  text-align: center;
+  z-index: 1;
+}
+
+
+
+#splash {
+  font-size: 70px;
+  z-index: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#splash img {
+  width: auto;
+  height: auto;
+  position: relative;
+}
+.sheild {
+  width: 150px;
+  height: 70px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+#splash h1, #splash img {
+  margin-bottom: 20px;
+}
+
+.splish {
+  padding-top: 180px;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+
+#curPortal {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  z-index: 9;
+
+}
+
+#curShield {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  z-index: 9;
+
+}
+
+#gameover {
+  height: 250px;
+  width: 500px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  margin: 0;
+  top: 300px;
+  left: 380px;
+  background-color: darkslateblue;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+}
+
+#restart-confirmation {
+  display: none; 
+  position: fixed;
+  width: 400px;  
+  height: auto;  
+  background: rgba(211, 211, 211, 1); 
+  text-align: center;
+  color: black;
+  z-index: 112;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  font-size:40px;
+  top: 300px; 
+  left: 380px;
+}
+
+/* Style for Yes/No buttons */
+#restart-confirmation .modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 30px;
+  cursor: pointer;
+  border: 2px solid black;
+  background: white;
+  font-family: 'VT323', monospace; 
+}
+
+#restart-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 720px;
+  background: rgba(50, 50, 50, 0.8);
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; 
+  text-align: center;
+}
+
+#pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px; /* Match game window */
+  height: 720px;
+  background: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+  display: none; /* Initially hidden */
+  z-index: 100; /* Below pause menu but above game objects */
+}
